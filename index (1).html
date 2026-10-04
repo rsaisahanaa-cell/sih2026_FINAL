@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIVIC@ME | Intelligent Industrial Approvals</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f5f7fb;color:#172033}
+header{background:#101a35;color:#fff;padding:18px 5%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:800}.logo span{color:#45d6b5}
+header small{opacity:.8}
+.layout{display:flex;min-height:calc(100vh - 70px)}
+nav{width:235px;background:#16213f;color:#dce4f5;padding:25px 15px}
+nav button{width:100%;background:none;border:0;color:#dce4f5;text-align:left;padding:13px 15px;border-radius:9px;margin:3px 0;font-size:14px;cursor:pointer}
+nav button.active,nav button:hover{background:#25365f;color:#fff}
+main{flex:1;padding:35px 5%;max-width:1400px}
+h1{margin:0 0 8px;font-size:30px}.sub{color:#69758d;margin-bottom:25px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:white;border-radius:14px;padding:20px;box-shadow:0 4px 18px #17203312;border:1px solid #e7ebf3}
+.card .num{font-size:30px;font-weight:800;margin-top:8px}.label{color:#6c7890;font-size:13px}
+.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-top:20px}
+.panel{background:white;border-radius:14px;padding:22px;box-shadow:0 4px 18px #17203312;border:1px solid #e7ebf3}
+.panel h2{font-size:19px;margin-top:0}
+.row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #edf0f5}
+.badge{padding:5px 9px;border-radius:20px;font-size:12px;background:#e9f8f4;color:#16836d}
+.badge.warn{background:#fff3db;color:#a86a00}.badge.blue{background:#eaf1ff;color:#3867c8}
+.btn{background:#1167e8;color:#fff;border:0;border-radius:8px;padding:11px 16px;font-weight:700;cursor:pointer}
+.btn.green{background:#13a883}.btn.secondary{background:#edf2fa;color:#263653}
+.progress{height:9px;background:#e9edf4;border-radius:8px;overflow:hidden}.progress div{height:100%;background:#18b08c;border-radius:8px}
+.timeline{display:flex;gap:0;margin:25px 0}.step{flex:1;text-align:center;font-size:12px;color:#78839a;position:relative}.step:before{content:"";display:block;width:20px;height:20px;background:#dce3ef;border-radius:50%;margin:0 auto 7px;position:relative;z-index:2}.step.done:before{background:#18b08c}.step.active:before{background:#2879e8}.step:after{content:"";position:absolute;top:9px;left:50%;width:100%;height:2px;background:#dce3ef}.step:last-child:after{display:none}.step.done:after{background:#18b08c}
+.hidden{display:none}.hero{background:linear-gradient(135deg,#142449,#1c3b71);color:white;border-radius:18px;padding:30px;margin-bottom:22px}
+.hero h2{font-size:24px;margin:0 0 8px}.hero p{color:#cdd8ee;max-width:720px}
+@media(max-width:850px){nav{width:180px}.cards{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}@media(max-width:600px){.layout{display:block}nav{width:100%;display:flex;overflow:auto}nav button{min-width:130px}.cards{grid-template-columns:1fr}main{padding:22px 4%}}
+</style>
+</head>
+<body>
+<header><div class="logo">CIVIC<span>@ME</span></div><small>Intelligent Industrial Approvals & Compliance Accelerator</small></header>
+<div class="layout">
+<nav>
+<button class="active" onclick="show('dashboard',this)">Dashboard</button>
+<button onclick="show('mapper',this)">Approval Mapper</button>
+<button onclick="show('documents',this)">Documents</button>
+<button onclick="show('applications',this)">Applications</button>
+<button onclick="show('sla',this)">SLA Tracking</button>
+<button onclick="show('renewals',this)">Renewals & Incentives</button>
+</nav>
+<main>
+<section id="dashboard">
+<div class="hero"><h2>Good morning, Industry Applicant 👋</h2><p>One intelligent layer for discovering approvals, validating documents, coordinating workflows and tracking statutory timelines.</p><button class="btn green" onclick="show('mapper',document.querySelectorAll('nav button')[1])">Find My Approvals →</button></div>
+<div class="cards">
+<div class="card"><div class="label">Applicable Approvals</div><div class="num">8</div></div>
+<div class="card"><div class="label">Applications in Progress</div><div class="num">4</div></div>
+<div class="card"><div class="label">Documents Verified</div><div class="num">23</div></div>
+<div class="card"><div class="label">SLA Compliance</div><div class="num">94%</div></div>
+</div>
+<div class="grid">
+<div class="panel"><h2>Approval Journey</h2>
+<div class="timeline"><div class="step done">Profile</div><div class="step done">Discovery</div><div class="step done">Documents</div><div class="step active">Processing</div><div class="step">Inspection</div><div class="step">Approval</div></div>
+<div class="row"><span>Pollution Control Consent</span><span class="badge">In Progress</span></div>
+<div class="row"><span>Factory Licence</span><span class="badge">Documents Verified</span></div>
+<div class="row"><span>Fire NOC</span><span class="badge warn">Inspection Pending</span></div>
+</div>
+<div class="panel"><h2>Upcoming SLA Deadlines</h2>
+<div class="row"><span>Fire NOC</span><strong>3 days</strong></div>
+<div class="row"><span>Factory Licence</span><strong>7 days</strong></div>
+<div class="row"><span>Pollution Consent</span><strong>11 days</strong></div>
+</div></div>
+</section>
+
+<section id="mapper" class="hidden"><h1>Smart Approval Mapper</h1><p class="sub">Generate a customised approval checklist based on your business profile.</p>
+<div class="panel"><h2>Business Profile</h2><div class="row"><span>Sector</span><strong>Manufacturing</strong></div><div class="row"><span>Location</span><strong>Maharashtra</strong></div><div class="row"><span>Project Size</span><strong>Medium</strong></div><div class="row"><span>Stage</span><strong>New Unit</strong></div><br><button class="btn" onclick="alert('8 applicable approvals identified for this profile.')">Generate Approval Map</button></div>
+<div class="panel" style="margin-top:20px"><h2>Recommended Approvals</h2><div class="row"><span>Pollution Control Consent</span><span class="badge blue">12 days SLA</span></div><div class="row"><span>Factory / Industrial Licence</span><span class="badge blue">15 days SLA</span></div><div class="row"><span>Fire Safety NOC</span><span class="badge blue">10 days SLA</span></div><div class="row"><span>Food Safety Licence</span><span class="badge blue">7 days SLA</span></div></div></section>
+
+<section id="documents" class="hidden"><h1>Document Validation</h1><p class="sub">Pre-check your submission before departmental processing.</p>
+<div class="panel"><h2>Document Checklist</h2><div class="row"><span>Identity / PAN / Registration</span><span class="badge">Verified</span></div><div class="row"><span>Land / Lease Document</span><span class="badge">Verified</span></div><div class="row"><span>Project Report</span><span class="badge">Verified</span></div><div class="row"><span>Environmental Documents</span><span class="badge warn">Review Required</span></div><br><button class="btn" onclick="alert('Demo validator: document set is 92% complete.')">Run Pre-validation</button></div></section>
+
+<section id="applications" class="hidden"><h1>Applications</h1><p class="sub">Track every approval from submission to decision.</p>
+<div class="panel"><div class="row"><span><strong>APP-2026-00124</strong><br><small>Pollution Control Consent</small></span><span class="badge">In Progress</span></div><div class="row"><span><strong>APP-2026-00125</strong><br><small>Factory Licence</small></span><span class="badge">Under Scrutiny</span></div><div class="row"><span><strong>APP-2026-00126</strong><br><small>Fire NOC</small></span><span class="badge warn">Inspection Pending</span></div></div></section>
+
+<section id="sla" class="hidden"><h1>SLA Intelligence</h1><p class="sub">Real-time visibility into statutory timelines and bottlenecks.</p>
+<div class="cards"><div class="card"><div class="label">On-time Applications</div><div class="num">94%</div><div class="progress"><div style="width:94%"></div></div></div><div class="card"><div class="label">At Risk</div><div class="num">2</div></div><div class="card"><div class="label">Average Processing</div><div class="num">8.4d</div></div><div class="card"><div class="label">Escalations</div><div class="num">1</div></div></div></section>
+
+<section id="renewals" class="hidden"><h1>Renewals & Incentives</h1><p class="sub">Never miss a renewal or eligible government support opportunity.</p>
+<div class="grid"><div class="panel"><h2>Upcoming Renewals</h2><div class="row"><span>Factory Licence</span><span class="badge warn">45 days</span></div><div class="row"><span>Fire Safety NOC</span><span class="badge warn">72 days</span></div></div><div class="panel"><h2>Matched Incentives</h2><div class="row"><span>Industrial Development Incentive</span><span class="badge">Eligible</span></div><div class="row"><span>Technology Upgrade Support</span><span class="badge">Potential Match</span></div></div></div></section>
+</main></div>
+<script>
+function show(id,btn){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+</script>
+</body>
+</html>
